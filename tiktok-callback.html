@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connecting TikTok · Deep Field Radio</title>
+<link rel="icon" href="logo-120.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header><img src="logo.png" alt=""><a href="./">Deep Field Radio</a></header>
+  <h1>Connecting TikTok</h1>
+  <p id="msg">Handing the sign-in back to the Deep Field Radio Uploader on this computer.</p>
+</main>
+<script>
+// TikTok only redirects to https pages, so this page passes the one-time code to the Uploader waiting on this computer.
+const q = location.search;
+if (new URLSearchParams(q).get("code")) location.replace("http://127.0.0.1:8798/" + q);
+else document.getElementById("msg").textContent = "TikTok did not finish the sign-in. Close this tab and start again.";
+</script>
+</body>
+</html>
